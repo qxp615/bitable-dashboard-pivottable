@@ -1,0 +1,45 @@
+{
+  "dataSource": "数据源",
+  "dataRange": "数据范围",
+  "dataRangeAll": "全部数据",
+
+  "rows": "行字段",
+  "columns": "列字段",
+  "values": "数值字段",
+  "countRecords": "统计字段总数",
+  "aggrValue": "统计字段数值",
+  "selectField": "选择字段",
+  "sum": "求和",
+  "average": "平均值",
+  "max": "最大值",
+  "min": "最小值",
+
+  "count": "记录数",
+  "total": "合计",
+  "none": "无",
+
+  "formatSettings": "格式设置",
+  "valueDigits": "数值小数位数",
+
+  "originalDigits": "原始位数",
+  "integer": "整数",
+  "keepOneDigit": "保留 1 位小数",
+  "keepTwoDigit": "保留 2 位小数",
+
+  "calcPercentage": "计算百分比",
+  "noPercentage": "不计算百分比",
+  "percentageAcrossRows": "占各行百分比",
+  "percentageAcrossColumns": "占各列百分比",
+  "percentageAcrossAllItems": "占所有单元格百分比",
+
+  "sortBy": "排序依据",
+  "fieldValue": "字段值",
+  "recordOrder": "记录顺序",
+
+  "order": "排序规则",
+  "decending": "倒序",
+  "ascending": "正序",
+
+
+  "confirm": "确定"
+}

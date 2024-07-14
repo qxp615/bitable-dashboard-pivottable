@@ -1,0 +1,39 @@
+{
+  "dataSource": "Data source",
+  "dataRange": "Data range",
+  "dataRangeAll": "All data",
+
+  "rows": "Row Field",
+  "columns": "Column Field",
+  "values": "Value Field",
+  "countRecords": "Count of records",
+  "aggrValue": "Aggregate value",
+  "selectField": "Select field",
+  "sum": "Sum",
+  "average": "Average",
+  "max": "Maximum",
+  "min": "Minimum",
+
+  "count": "Records",
+  "total": "Total",
+  "None": "None",
+
+  "formatSettings": "Format Settings",
+  "valueDigits": "Number of Digits",
+
+  "originalDigits": "Original Digits",
+  "integer": "Integer",
+  "keepOneDigit": "Keep one decimal",
+  "keepTwoDigit": "Keep two decimals",
+  
+  "sortBy": "Sort By",
+  "fieldValue": "Value",
+  "recordOrder": "Order of Records",
+
+  "order": "Order",
+  "decending": "Decending",
+  "ascending": "Ascending",
+
+  "confirm": "Confirm"
+  
+}

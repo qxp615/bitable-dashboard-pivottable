@@ -1,0 +1,390 @@
+::-webkit-scrollbar {
+    width: 8px;
+
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+    display: none;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgb(194,194,194);
+    background-clip: content-box;
+    border: 1px solid transparent;
+    border-radius: 8px;
+}
+
+body[theme-mode="dark"] ::-webkit-scrollbar-thumb {
+    background-color: rgba(235,235,235,0.3);
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.configForm.semi-form {
+    width: 100%;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+
+    .configFields {
+        width: 300px;
+        padding: 10px 20px 0 20px;
+        flex: 1;
+        overflow: auto;
+    }
+
+    .semi-input-wrapper {
+        border-radius: 6px;
+    }
+
+    .configActions {
+        height: 72px;
+        padding: 0 20px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+
+        .semi-button {
+            width: 80px;
+            border-radius: 6px;
+            font-weight: 400;
+        }
+    }
+
+    .semi-form-field-label-text {
+        font-weight: normal;
+    }
+
+    .semi-select {
+        width: 100%;
+        border-radius: 6px;
+    }
+
+    .semi-form-field {
+        padding: 10px 0;
+        overflow: visible;
+    }
+
+    .chartTypePicker {
+        gap: 12px;
+
+        .semi-radio {
+            width: 86px;
+            min-height: 96px;
+            padding: 6px;
+            border-radius: 8px;
+            border: 1px solid #DEE0E3;
+            background: none;
+
+            .semi-radio-content {
+                flex: 1;
+                text-align: center;
+            }
+
+            .semi-radio-addon {
+                flex-direction: column;
+                display: flex;
+                gap: 10px;
+            }
+
+            .iconFrame {
+                height: 48px;
+                border-radius: 6px;
+                width: 100%;
+                background-color: #F5F6F7;
+                background-position: center center;
+                background-repeat: no-repeat;
+            }
+
+            .iconFrame.bar {
+                background-image: url(/src/assets/icons/icon-charttype-bar.svg);
+            }
+            .iconFrame.semiCircular {
+                background-image: url(/src/assets/icons/icon-charttype-semicircular.svg);
+            }
+            .iconFrame.circular {
+                background-image: url(/src/assets/icons/icon-charttype-circular.svg);
+            }
+
+            .chartTypeLabel {
+                font-weight: 400;
+            }
+        }
+
+        .semi-radio:hover, .semi-radio:active{
+            background: none;
+            box-shadow: 0 6px 18px -6px rgba(31, 35, 41, 0.05);
+        }
+
+        .semi-radio-checked {
+            background: none;
+            border: 1px solid #1456F0;
+
+            .iconFrame {
+                background-color: #F0F4FF;
+            }
+
+            .iconFrame.bar {
+                background-image: url(/src/assets/icons/icon-charttype-bar-selected.svg);
+            }
+            .iconFrame.semiCircular {
+                background-image: url(/src/assets/icons/icon-charttype-semicircular-selected.svg);
+            }
+            .iconFrame.circular {
+                background-image: url(/src/assets/icons/icon-charttype-circular-selected.svg);
+            }
+
+            .chartTypeLabel {
+                font-weight: 500;
+                color: #1456F0;
+            }
+        }
+       
+    }
+
+    .colorPicker {
+        display: flex;
+        border: none;
+        gap: 6px;
+        align-items: center;
+        
+        .semi-radio {
+            padding: 0;
+            border-width: 0;
+            padding: 1px;
+            
+            .swatch {
+                border-radius: 4px;
+                width: 18px;
+                height: 18px;
+            }
+        }
+
+        .semi-radio-checked {
+            border-width: 2px;
+            margin-left: -2px;
+            margin-right: -2px;
+            border-radius: 6px;
+            background: none;
+
+            .swatch {
+                background-image: url(/src/assets/icons/icon-colorpicker-checked.svg);
+                background-position: center center;
+                background-repeat: no-repeat;
+            }
+        }
+        
+    }
+
+    .semi-divider{
+        margin: 6px 0;
+    }
+    
+    .valueAggField {
+        .prefixIcon {
+            margin: 4px 4px 0 8px;
+        }
+
+        .semi-form-field {
+            padding: 0;
+        }
+
+        .currentValueAggMethod {
+            border: none;
+            height: 24px;
+            
+            .semi-select-selection {
+                font-size: 12px;
+                background-color: rgba(31, 35, 41, 0.1);
+                border-radius: 6px;
+                color: rgba(100, 106, 115, 1);
+                padding: 0 4px;
+            }
+
+            .semi-select-arrow-empty {
+                display: none;
+            }
+
+            .suffixIcon {
+                margin: 0 8px 0 4px;
+            }
+        }
+
+        .currentValueAggMethod.semi-select-open {
+            .semi-select-selection {
+                background-color: rgba(20, 86, 240, 0.1);
+                color: rgba(20, 86, 240, 1);
+            }
+        }
+    }
+
+    .semi-form-section {
+        padding-top: 4px;
+        padding-bottom: 4px;
+
+        .semi-form-section-text {
+            font-size: 14px;
+            font-weight: 400;
+            padding-top: 6px;
+            border-bottom: 0;
+            margin: 0;
+        }
+
+        .flexFormRow {
+            display: flex;
+            gap: 10px;
+        }
+
+        .semi-form-field {
+            padding-top: 6px;
+            padding-bottom: 6px;
+            
+            .semi-form-field-label-text {
+                color: rgba(143, 149, 158, 1);
+                font-size: 12px;
+                font-weight: 500;
+            }
+        }
+    }
+
+    .fieldUnit {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    .unitPosition {
+        height: 30px;
+        border-radius: 6px;
+        border: 1px solid rgba(208, 211, 214, 1);
+        
+        .semi-radio {
+            flex: 1;
+            padding: 3px;
+
+            .semi-radio-content {
+                flex: 1;
+            }
+
+            .semi-radio-addon-buttonRadio {
+                color: rgba(31, 35, 41, 1);
+                font-weight: 500;
+            }
+
+            .semi-radio-addon-buttonRadio-checked {
+                background-color: rgba(20, 86, 240, 0.1);
+                color: rgba(20, 86, 240, 1);
+                font-weight: 500;
+            }
+        }
+    }
+
+    .fieldNumericFormat {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+}
+
+.aggMethodDropdown {
+    min-width: 120px !important;
+    .semi-select-option-icon {
+        order: 2;
+        margin-left: auto;
+        margin-right: 0;
+
+        svg {
+            width: 12px;
+            height: 12px;
+        }
+    }
+
+    .semi-select-option-selected {
+        color: rgba(20, 86, 240, 1);
+        font-weight: 400;
+    }
+}
+
+body[theme-mode="dark"] {
+   .configForm.semi-form {
+        .chartTypePicker {
+            .semi-radio {
+                border: 1px solid #505050;
+                .iconFrame {
+                    background-color: #373737;
+                }
+                .iconFrame.bar {
+                    background-image: url(/src/assets/icons/icon-charttype-bar-dark.svg);
+                }
+                .iconFrame.semiCircular {
+                    background-image: url(/src/assets/icons/icon-charttype-semicircular-dark.svg);
+                }
+                .iconFrame.circular {
+                    background-image: url(/src/assets/icons/icon-charttype-circular-dark.svg);
+                }
+                .chartTypeLabel {
+                    color: #646A73;
+                }
+            }
+            .semi-radio-checked {
+                border: 1px solid #5083FB;
+                .iconFrame {
+                    background-color: #152340;
+                }
+                .iconFrame.bar {
+                    background-image: url(/src/assets/icons/icon-charttype-bar-selected-dark.svg);
+                }
+                .iconFrame.semiCircular {
+                    background-image: url(/src/assets/icons/icon-charttype-semicircular-selected-dark.svg);
+                }
+                .iconFrame.circular {
+                    background-image: url(/src/assets/icons/icon-charttype-circular-selected-dark.svg);
+                }
+                .chartTypeLabel {
+                    color: #1456F0;
+                }
+            }
+        }
+        .fieldUnit {
+            .unitPosition {
+                border: 1px solid rgba(80, 80, 80, 1);
+                .semi-radio {
+                    .semi-radio-addon-buttonRadio{
+                        color: rgba(235, 235, 235, 1);
+                    }
+                    .semi-radio-addon-buttonRadio-checked {
+                        background-color: rgba(76, 136, 255, 0.2);
+                        color: rgba(80, 131, 251, 1);
+                    }
+                }
+            }
+        }
+   } 
+}
+
+/* fix broken semi dsm */
+.semi-input-group .semi-select:first-child,
+.semi-input-group .semi-select:last-child,
+.semi-input-group>.semi-input-wrapper:first-child {
+    border-radius: 6px;
+}
+
+.semi-input-group>.semi-input-wrapper:not(:last-child)::after,
+.semi-input-group .semi-select:not(:last-child)::after {
+    display: none;
+}

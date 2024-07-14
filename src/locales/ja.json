@@ -1,0 +1,39 @@
+{
+    "dataSource": "データソース",
+    "dataRange": "データ範囲",
+    "dataRangeAll": "全てのデータ",
+
+    "rows": "行フィールド",
+    "columns": "列フィールド",
+    "values": "値フィールド",
+    "countRecords": "レコード総数",
+    "aggrValue": "集計値",
+    "selectField": "フィールドを選択",
+    "sum": "合計",
+    "average": "平均",
+    "max": "最大",
+    "min": "最小",
+
+    "count": "レコード",
+    "total": "合計",
+    "none": "なし",
+
+   
+    "formatSettings": "書式設定",
+    "valueDigits": "桁数",
+    "originalDigits": "元の数字",
+    "integer": "整数",
+    "keepOneDigit": "小数点以下 1 桁を保持",
+    "keepTwoDigit": "小数点以下 2 桁を保持",
+    
+    "sortBy": "並べ替え",
+    "fieldValue": "値",
+    "recordOrder": "レコードの順序",
+
+    "order": "照合順序",
+    "decending": "逆順",
+    "ascending": "昇順",
+
+    "confirm": "確定"
+    
+  }
