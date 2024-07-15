@@ -24,20 +24,20 @@
     "dependencies": {
         "@douyinfe/semi-foundation": "^2.58.0",
         "@douyinfe/semi-icons": "^2.58.0",
-        "@douyinfe/semi-ui": "^2.58.0",
+        "@douyinfe/semi-ui": "^2.62.0",
         "@lark-base-open/js-sdk": "https://lf3-static.bytednsdoc.com/obj/eden-cn/jjjpceh7nulojvhj/@lark-base-open-js-sdk-0.4.0-alpha.12.tgz",
         "@reduxjs/toolkit": "^2.2.4",
         "@semi-bot/semi-theme-feishu-dashboard": "^1.0.3",
         "echarts": "^5.5.0",
         "echarts-for-react": "^3.0.2",
+        "i18next": "^23.5.1",
+        "i18next-browser-languagedetector": "^7.1.0",
         "normalize.css": "^8.0.1",
+        "react-i18next": "^13.2.2",
         "react-redux": "^9.1.2",
         "react-resize-detector": "^10.0.1",
         "vite-plugin-semi-theme": "^0.5.0",
         "vite-plugin-semi-theming": "^0.1.0",
-        "vite-plugin-svgr": "^4.2.0",
-        "i18next": "^23.5.1",
-        "i18next-browser-languagedetector": "^7.1.0",
-        "react-i18next": "^13.2.2"
+        "vite-plugin-svgr": "^4.2.0"
     }
 }

@@ -151,12 +151,12 @@ export default () => {
 
             <Divider/>
 
-            <Form.Select field="rowField" label={T("rows")} initValue="none"
+            <Form.Select field="rowField" label={T("rows")} initValue="none" searchPlaceholder={T("searchPlaceholder")}
                 optionList={[{fieldName: T("none"), fieldId: 'none'}, ...fieldList].map(fieldInfo => 
                     ({value: fieldInfo.fieldId, label: fieldInfo.fieldName}))} ></Form.Select>
 
 
-            <Form.Select field="columnField" label={T("columns")} initValue="none"
+            <Form.Select field="columnField" label={T("columns")} initValue="none" searchPlaceholder={T("searchPlaceholder")}
                 optionList={[{fieldName: T("none"), fieldId: 'none'}, ...fieldList].map(fieldInfo => 
                     ({value: fieldInfo.fieldId, label: fieldInfo.fieldName}))} ></Form.Select>
             
@@ -178,7 +178,8 @@ export default () => {
                                 <Select.Option value="MAX">{T("max")}</Select.Option>
                                 <Select.Option value="MIN">{T("min")}</Select.Option>
                             </Form.Select>
-                        }
+                        } 
+                        searchPlaceholder={T("searchPlaceholder")}
                         style={config.valueCalcMethod === 'calc' ? {} : {display: 'none'}}
                         >
                 </Form.Select>
