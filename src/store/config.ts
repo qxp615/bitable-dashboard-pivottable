@@ -95,7 +95,7 @@ export const updatePreviewData = (payload:ConfigPayload):AppThunk => (async (dis
   else {
     idata = await dashboard.getData()
   } 
-  
+
   dispatch(setCurrentValue(idata))
   
 })
@@ -120,7 +120,14 @@ export const loadConfig = ():AppThunk<Promise<ConfigPayload>> => (async (dispatc
   }
   const dashboardConfig = await dashboard.getConfig()
   if (dashboardConfig.customConfig && 'config' in dashboardConfig.customConfig) {
-    const configState = dashboardConfig.customConfig['config'] as ConfigState
+    let configState = dashboardConfig.customConfig['config'] as ConfigState
+    const dataCondition = dashboardConfig.dataConditions[0]
+    configState = {
+      ...configState, 
+      dataSource: dataCondition.tableId,
+      dataRange: JSON.stringify(dataCondition.dataRange),
+      valueAggField: dataCondition.series == 'COUNTA' ? initialState.config.valueAggField : dataCondition.series![0].fieldId
+    }
     dispatch(setConfigState(configState))
     return configState
   }

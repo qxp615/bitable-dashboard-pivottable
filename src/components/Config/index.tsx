@@ -16,7 +16,7 @@ export default () => {
     type TableInfo = {tableId: string, tableName: string}
     const [tableList, setTableList] = useState<TableInfo[]>([])
     const [tableDataRange, setTableDataRange] = useState<IDataRange[]>([])
-    type FieldItemInfo = {fieldId: string, fieldName: string}
+    type FieldItemInfo = {fieldId: string, fieldName: string, fieldType: FieldType}
     const dispatch = useAppDispatch()
     const [numberFieldList, setNumberFieldList] = useState<FieldItemInfo[]>([])
     const [fieldList, setFieldList] = useState<FieldItemInfo[]>([])
@@ -77,7 +77,8 @@ export default () => {
             const name = await field.getName();
             return {
                 fieldId: field.id,
-                fieldName: name
+                fieldName: name,
+                fieldType: await field.getType(),
             }
         }))
         setNumberFieldList(numberFieldsInfo)
@@ -86,7 +87,8 @@ export default () => {
             const name = await field.getName();
             return {
                 fieldId: field.id,
-                fieldName: name
+                fieldName: name,
+                fieldType: await field.getType(),
             }
         }))
         setFieldList(allFieldsInfo)
@@ -114,6 +116,17 @@ export default () => {
         }
         dispatch(updatePreviewData(configState))
     }
+
+    const renderCustomFieldSelect = (field:FieldItemInfo) => {
+        return <Select.Option value={field.fieldId} showTick={true} key={field.fieldId}>
+            <div className='fieldOption'>
+                <div className='prefixIcon' style={field.fieldType != FieldType.Denied ? {} : {display: 'none'}}>
+                    <img src={new URL(`./field-icons/${field.fieldType}.svg`, import.meta.url).href}/>
+                </div>{field.fieldName}
+            </div>
+        </Select.Option>
+    }
+
     useEffect(() => {
         fetchInitData()
     }, [])
@@ -151,14 +164,18 @@ export default () => {
 
             <Divider/>
 
-            <Form.Select field="rowField" label={T("rows")} initValue="none" searchPlaceholder={T("searchPlaceholder")}
-                optionList={[{fieldName: T("none"), fieldId: 'none'}, ...fieldList].map(fieldInfo => 
-                    ({value: fieldInfo.fieldId, label: fieldInfo.fieldName}))} ></Form.Select>
+            <Form.Select field="rowField" label={T("rows")} initValue="none" 
+                filter searchPosition='dropdown' searchPlaceholder={T("searchPlaceholder")}>
+                {[{fieldName: T("none"), fieldId: 'none', fieldType: FieldType.Denied}, ...fieldList].map(field => 
+                        (renderCustomFieldSelect(field)))}
+            </Form.Select>
 
 
-            <Form.Select field="columnField" label={T("columns")} initValue="none" searchPlaceholder={T("searchPlaceholder")}
-                optionList={[{fieldName: T("none"), fieldId: 'none'}, ...fieldList].map(fieldInfo => 
-                    ({value: fieldInfo.fieldId, label: fieldInfo.fieldName}))} ></Form.Select>
+            <Form.Select field="columnField" label={T("columns")} initValue="none"
+                filter searchPosition='dropdown' searchPlaceholder={T("searchPlaceholder")}>
+                {[{fieldName: T("none"), fieldId: 'none', fieldType: FieldType.Denied}, ...fieldList].map(field => 
+                (renderCustomFieldSelect(field)))}
+            </Form.Select>
             
             
             <Form.InputGroup label={{ text: T("values") }} className='fieldUnit'>
@@ -167,8 +184,6 @@ export default () => {
                     <Select.Option value="calc">{T("aggrValue")}</Select.Option>
                 </Form.Select>
                 <Form.Select field="valueAggField" initValue="" className='valueAggField' showArrow={false}
-                        optionList={ numberFieldList.map(fieldInfo => ({value: fieldInfo.fieldId, label: fieldInfo.fieldName}) )}
-                        prefix={<div className='prefixIcon'><IconFormular/></div>}
                         suffix={
                             <Form.Select field="valueAggMethod" className='currentValueAggMethod' noLabel={true} showArrow={false}
                                     initValue="SUM"  onFocus={(e) => {e.stopPropagation()}} dropdownClassName="aggMethodDropdown" position='bottomRight'
@@ -179,9 +194,10 @@ export default () => {
                                 <Select.Option value="MIN">{T("min")}</Select.Option>
                             </Form.Select>
                         } 
-                        searchPlaceholder={T("searchPlaceholder")}
+                        filter searchPosition='dropdown' searchPlaceholder={T("searchPlaceholder")}
                         style={config.valueCalcMethod === 'calc' ? {} : {display: 'none'}}
                         >
+                        {numberFieldList.map(field => (renderCustomFieldSelect(field)))}
                 </Form.Select>
             </Form.InputGroup>
 

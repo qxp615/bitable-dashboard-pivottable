@@ -51,7 +51,7 @@ export default () => {
                     rowTotals[String(col.dataIndex)] += Number(row[i].value)
                 }
             }
-            return [col.dataIndex, keepDigits(row[i].value)]
+            return [col.dataIndex, i==0 ? row[i].text : keepDigits(row[i].value)]
         }))
         return {
             key: index,

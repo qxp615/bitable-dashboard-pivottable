@@ -195,9 +195,6 @@ input[type=number] {
     }
     
     .valueAggField {
-        .prefixIcon {
-            margin: 4px 4px 0 8px;
-        }
 
         .semi-form-field {
             padding: 0;
@@ -375,6 +372,16 @@ body[theme-mode="dark"] {
             }
         }
    } 
+}
+
+.fieldOption {
+    display: flex;
+    align-items: center;
+
+    .prefixIcon {
+        display: flex;
+        margin-right: 4px;
+    }
 }
 
 /* fix broken semi dsm */
