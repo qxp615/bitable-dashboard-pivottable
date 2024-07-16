@@ -23,18 +23,21 @@ export default () => {
     }
 
     let rowTotals: { [k:string]: number } = {}
+    const MIN_COL_WIDTH = 150 // 超过5个列时的最小宽度
     let columns = idata[0].map(col => {
         rowTotals[String(col.value)] = 0
         return {
-            'title': col.value == 'Bitable_Dashboard_Count' ? T('count') : col.value, 
-            'dataIndex': String(col.value)
+            'title': col.value == 'Bitable_Dashboard_Count' ? T('count') : col.text, 
+            'dataIndex': String(col.value),
+            'width': idata[0].length >= 5 ? MIN_COL_WIDTH : undefined,
         }
     })
     if (hasColTotal) {
         rowTotals['_total'] = 0
         columns.push({
             'title': T('total'),
-            'dataIndex': '_total'
+            'dataIndex': '_total',
+            'width': idata[0].length >= 5 ? MIN_COL_WIDTH : undefined,
         })
     }
 
