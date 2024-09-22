@@ -3,12 +3,28 @@ import { useAppSelector } from "../../store/hook"
 import { darkModeThemeColor, getLocalUnitAbbrRule } from "../common";
 import './style.scss'
 import { T } from "../../locales/i18n";
-import { DATA_SOURCE_SORT_TYPE, ORDER } from "@lark-base-open/js-sdk";
+import { dashboard, DATA_SOURCE_SORT_TYPE, IDashboardTheme, ORDER } from "@lark-base-open/js-sdk";
+import { useEffect, useState } from "react";
 
 
 export default () => {
     const config = useAppSelector(store => store.config.config)
     const idata = useAppSelector(store => store.tableData.currentValue)
+
+     // dashboard theme system section
+     const [themeConfig, setThemeConfig] = useState<IDashboardTheme>();
+     const getThemeConfig = async () => {
+         const theme = await dashboard.getTheme();
+         setThemeConfig(theme);
+     }
+     useEffect(() => {
+         getThemeConfig()
+     }, [])
+     dashboard.onThemeChange(res => {
+         setThemeConfig(res.data);
+     });
+     const tableBgColor = themeConfig ? themeConfig.chartBgColor : 'transparent';
+
     if (idata.length < 2) {
         return <></>
     }
@@ -82,5 +98,6 @@ export default () => {
     }
     
 
-    return <Table columns={columns} dataSource={tableData} pagination={false} />
+    return <Table columns={columns} dataSource={tableData} pagination={false} 
+                style={{ background: tableBgColor }}/>
 }
