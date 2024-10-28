@@ -3,6 +3,7 @@
     "version": "1.0.0",
     "type": "module",
     "description": "Goal widget for bittable dashboard",
+    "output":"dist",
     "scripts": {
         "dev": "vite",
         "start": "vite",
