@@ -1,1 +1,0 @@
-# Bittable Dashboard Plugin: Goal
