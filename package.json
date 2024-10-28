@@ -39,5 +39,6 @@
         "vite-plugin-semi-theme": "^0.5.0",
         "vite-plugin-semi-theming": "^0.1.0",
         "vite-plugin-svgr": "^4.2.0"
-    }
+    },
+    "output": "dist"
 }
